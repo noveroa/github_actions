@@ -1,13 +1,13 @@
-name: Test / Deploy Code # every job gets its own isolated runner and jobs run in parallel
+name: Test Deploy Code
 on: workflow_dispatch
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
     - name: Get Code
-      uses: actions/checkout #predefined action from github marketplace: https://github.com/marketplace?type=actions
+      uses: actions/checkout@v6 #predefined action from github marketplace: https://github.com/marketplace?type=actions
     - name: Install node
-      uses: actions/setup-node
+      uses: actions/setup-node@v6
       with:
         node-version: '18'
     - name: Install node dependencies
