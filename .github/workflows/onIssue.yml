@@ -1,0 +1,12 @@
+name: Issue Trigger
+on: issues
+jobs:
+    info:
+        runs-on: ubuntu-latest
+        steps:
+        - name: Issue Info
+          run: |
+            echo "Issue Title: ${{ toJson( github.event.issue.title )}}"
+            echo "Issue Body: ${{ toJson( github.event.issue.body )}}"
+            echo "Issue Created By: ${{ toJson( github.event.issue.user.login )}}"
+            echo "Action: ${{ toJson( github.event.issue )}}"  
