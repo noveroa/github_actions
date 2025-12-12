@@ -1,0 +1,39 @@
+name: Lint Test Deploy 
+on: push
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get - Checkout source code 
+      uses: actions/checkout@v6 
+    - name: Install dependencies
+      uses: actions/setup-node@v6
+    - name: install node
+      run: npm ci
+    - name: lint
+      run: npm run lint
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get - Checkout source code 
+      uses: actions/checkout@v6 
+    - name: Install dependencies
+      uses: actions/setup-node@v6
+    - name: install node
+      run: npm ci
+    - name: test
+      run: npm test
+  deploy:
+    needs: [ lint, test ]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get - Checkout source code 
+      uses: actions/checkout@v6 
+    - name: Install dependencies
+      uses: actions/setup-node@v6
+    - name: install node
+      run: npm ci
+    - name: build
+      run: npm run build
+    - name: deploy
+      run: echo "deploying - starting server"
