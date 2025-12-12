@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Global github output
-      run: echo "global_output=some value  ${{toJson(github.run_id)}}"
-      
+      run: echo "global_output=some value  ${{toJson(github)}}"
+
