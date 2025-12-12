@@ -1,0 +1,31 @@
+name: Test / Deploy Code # every job gets its own isolated runner and jobs run in parallel
+on: workflow_dispatch
+jobs:
+  test:
+    runs-on: unbuntu-latest
+    steps:
+    - name: Get - Checkout source code 
+      uses: actions/checkout@v6 #predefined action from github marketplace: https://github.com/marketplace?type=actions
+    - name: Install node
+      uses: actions/setup-node@v6
+      with:
+        node-version: '18'
+    - name: Install node dependencies
+      run: npm ci
+    - name: Run test
+      run: npm test
+  deploy: 
+    runs-on: ubuntu-latest
+    steps:
+    - name: Get - Checkout source code 
+      uses: actions/checkout@v6 #predefined action from github marketplace: https://github.com/marketplace?type=actions
+    - name: Install node
+      uses: actions/setup-node@v6
+      with:
+        node-version: '18'
+    - name: Install node dependencies
+      run: npm ci
+    - name: build project
+      run: npm run build
+    - name: deploy project
+      run: echo "deploying - starting server"
