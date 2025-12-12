@@ -2,7 +2,7 @@ name: Test Code
 on: push
 jobs:
   setupEnv:
-    runs-on: unbuntu-latest
+    runs-on: ubuntu-latest
     steps:
     - name: Get - Checkout source code 
       uses: actions/checkout@v6 #predefined action from github marketplace: https://github.com/marketplace?type=actions
