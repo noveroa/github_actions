@@ -1,0 +1,9 @@
+name: Outputs
+on: [ workflow_dispatch, push ]
+jobs:
+  git-contexts:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Global github output
+      run: echo "global_output=some value  ${{toJson(github.run_id)}}"
+      
