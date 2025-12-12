@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get - Checkout source code 
-      uses: actions/checkout@v6 
+      uses: actions/checkout@v3 
     - name: Install dependencies
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v3
     - name: install node
       run: npm ci
     - name: lint
@@ -16,9 +16,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get - Checkout source code 
-      uses: actions/checkout@v6 
+      uses: actions/checkout@v3 
     - name: Install dependencies
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v3
     - name: install node
       run: npm ci
     - name: test
@@ -28,9 +28,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Get - Checkout source code 
-      uses: actions/checkout@v6 
+      uses: actions/checkout@v3 
     - name: Install dependencies
-      uses: actions/setup-node@v6
+      uses: actions/setup-node@v3
     - name: install node
       run: npm ci
     - name: build
